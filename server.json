@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.pipeworx-io/asub-ax",
+  "title": "Asub Ax",
+  "description": "Statistics and Research Åland (ÅSUB) PxWeb MCP.",
+  "version": "0.1.0",
+  "websiteUrl": "https://pipeworx.io/packs/asub-ax",
+  "repository": {
+    "url": "https://github.com/pipeworx-io/mcp-asub-ax",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://gateway.pipeworx.io/asub-ax/mcp"
+    }
+  ]
+}
