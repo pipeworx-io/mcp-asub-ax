@@ -1,12 +1,20 @@
 {
   "name": "@pipeworx/mcp-asub-ax",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Statistics and Research Åland (ÅSUB) PxWeb MCP.",
   "type": "module",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools.json": "./tools.json",
+    "./package.json": "./package.json"
+  },
   "bin": {
     "mcp-asub-ax": "bin/cli.js"
+  },
+  "files": ["bin/", "lib/", "tools.json", "server.json"],
+  "engines": {
+    "node": ">=18"
   },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "asub-ax"],
   "license": "MIT",
@@ -14,19 +22,12 @@
     "type": "git",
     "url": "git+https://github.com/pipeworx-io/mcp-asub-ax.git"
   },
-  "scripts": {
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.30.0",
-    "tsx": "^4.19.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.9.3",
-    "@cloudflare/workers-types": "^4.20260405.1"
-  },
+  "mcpName": "io.github.pipeworx-io/asub-ax",
   "pipeworx": {
-    "sourceHash": "v1-fd2c08d637c850094109100a859921b3003a3fc7a83fbd5d5fd08180a1768a20",
-    "sourceCommit": "93c7d52ace03a2bb9aee5e6024f6858adab0dd04"
+    "mode": "gateway",
+    "slug": "asub-ax",
+    "gatewaySlug": "asub-ax",
+    "sourceHash": "v1-db30842a07d9152fa25bb2c163a5e4ed315dba6ea241ad8a995cba6d8be88c9d",
+    "sourceCommit": "c6136b81713e72ccb22977ca0c0cd981f8c3f081"
   }
 }

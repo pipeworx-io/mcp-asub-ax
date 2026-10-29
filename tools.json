@@ -1,0 +1,52 @@
+[
+  {
+    "name": "subjects",
+    "description": "Browse the ÅSUB (Statistics Åland) PxWeb subject tree. Pass a sub-path like \"Statistik\" or \"Statistik/BE\" to list folders (type \"l\") and tables (type \"t\", id ends in \".px\"); omit path to list the top-level databases (Statistik, Utredning).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Sub-path under the API base (default empty = database list). e.g. \"Statistik\" or \"Statistik/BE\"."
+        }
+      }
+    }
+  },
+  {
+    "name": "table_meta",
+    "description": "Fetch dimension definitions and valid values for an ÅSUB PxWeb table (.px file). Path must be the full table path ending in \".px\" (e.g. \"Statistik/BE/Befolkningsrörelsen/BE006.px\"). Returns dimension codes, labels, and the value lists needed to build a query_table body.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "e.g. \"Statistik/BE/Befolkningsrörelsen/BE006.px\""
+        }
+      },
+      "required": [
+        "path"
+      ]
+    }
+  },
+  {
+    "name": "query_table",
+    "description": "POST a PxWeb selection query to an ÅSUB table and return the data as json-stat2. Path must end in \".px\"; body is a PxWeb query object with a \"query\" array of {code, selection: {filter, values}} entries plus {response: {format: \"json-stat2\"}}. Narrow each dimension's values to stay under PxWeb's per-response cell limit.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "e.g. \"Statistik/BE/Befolkningsrörelsen/BE006.px\""
+        },
+        "body": {
+          "type": "object",
+          "description": "{query: [{code, selection: {filter, values}}], response: {format: \"json-stat2\"}}"
+        }
+      },
+      "required": [
+        "path",
+        "body"
+      ]
+    }
+  }
+]
